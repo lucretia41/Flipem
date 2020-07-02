@@ -1,57 +1,53 @@
+let bodyElement = document.querySelector('body')
+let imageElement = document.createElement('div')
+
 let coin = {
     state: 0,
     flip: function () {
         /* 1. Randomly set your coin object's "state" property to be either 
-               0 or 1: use "this.state" to access the "state" property on this object.*/
-        let coinFlip = Math.random()
-        if (coinFlip < .5) {
-            this.state = 0
-        } else {
-            this.state = 1
-
-        }
+           0 or 1: use "this.state" to access the "state" property on this object.*/
+        return this.state = Math.round(Math.random());
     },
     toString: function () {
         /* 2. Return the string "Heads" or "Tails", depending on whether
-               "this.state" is 0 or 1. */
-        let stringToPage = document.createElement('div')
-        bodyElement.append(stringToPage)
+           "this.state" is 0 or 1. */
         if (this.state === 0) {
-            stringToPage.append('Heads')
             return 'Heads'
-        } else if (this.state === 1) {
-            stringToPage.append('Tails')
+        } else {
             return 'Tails'
         }
     },
-
-    toHtml: function () {
-        /* 3. Set the properties of this image element to show either face-up
-               or face-down, depending on whether this.state is 0 or 1.*/
-        const bodyElement = document.querySelector('body')
+    toHTML: function () {
         let image = document.createElement('img');
+        /* 3. Set the properties of this image element to show either face-up
+           or face-down, depending on whether this.state is 0 or 1.*/
         if (this.state === 0) {
-            bodyElement.append(image)
-            images.src = './assets/images/heads.jpg'
-        } else if (this.state === 1) {
-            bodyElement.append(image)
-            images.src = './assets/images/tails.jpg'
+            image.src = 'assets/images/kiwiheads.png'
+        } else {
+            image.src = 'assets/images/kiwitails.png'
         }
         return image;
-    },
-
-    flipTwentyString: function () {
-        for (let index = 0; index < 20; index++) {
-            this.flip()
-            this.toString()
-
-        }
-    },
-    flipTwentyImage: function () {
-        for (let index = 0; index < 20; index++) {
-            this.flip()
-            this.toHtml()
-
-        }
     }
 };
+
+function displayTwentyFlips() {
+    for (index = 0; index < 20; index++) {
+        let string = coin.toString()
+        coin.flip()
+        bodyElement.append(string)
+    }
+}
+
+displayTwentyFlips()
+
+function displayTwentyImages() {
+    for (index = 0; index < 20; index += 1) {
+        let img = coin.toHTML();
+        coin.flip();
+        bodyElement.append(imageElement);
+        imageElement.append(img)
+    }
+}
+displayTwentyImages()
+//img.style.height = '20px'
+//img.style.width = '20px'
