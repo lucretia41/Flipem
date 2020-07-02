@@ -22,9 +22,9 @@ let coin = {
         /* 3. Set the properties of this image element to show either face-up
            or face-down, depending on whether this.state is 0 or 1.*/
         if (this.state === 0) {
-            image.src = 'assets/images/kiwiheads.png'
+            image.src = 'assets/images/kiwi2front.jpg'
         } else {
-            image.src = 'assets/images/kiwitails.png'
+            image.src = 'assets/images/kiwi2back.jpg'
         }
         return image;
     }
@@ -49,5 +49,3 @@ function displayTwentyImages() {
     }
 }
 displayTwentyImages()
-//img.style.height = '20px'
-//img.style.width = '20px'
