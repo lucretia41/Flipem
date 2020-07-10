@@ -31,8 +31,9 @@ let coin = {
 };
 
 function displayTwentyFlips() {
-    coin.flip()
+
     for (index = 0; index < 20; index++) {
+        coin.flip()
         let string = coin.toString()
 
         bodyElement.append(string)
@@ -42,8 +43,9 @@ function displayTwentyFlips() {
 displayTwentyFlips()
 
 function displayTwentyImages() {
-    coin.flip()
+
     for (index = 0; index < 20; index += 1) {
+        coin.flip()
         let img = coin.toHTML();
 
         bodyElement.append(imageElement);
